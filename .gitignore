@@ -1,0 +1,12 @@
+node_modules
+dist
+*.log
+.verify/shots/
+backend/.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+# lock pins an internal package mirror; uv sync re-resolves from pyproject.toml
+backend/uv.lock
+.env
+backend/.env

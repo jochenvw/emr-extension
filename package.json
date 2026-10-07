@@ -1,0 +1,27 @@
+{
+  "name": "emr-extension",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive demo: an extensible clinical environment – reactive, governed clinical plugins on top of a resilient EMR.",
+  "scripts": {
+    "dev": "vite",
+    "dev:api": "cd backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload",
+    "test:api": "cd backend && uv run pytest -q && uv run ruff check .",
+    "serve": "npm run build && cd backend && uv run uvicorn app.main:app --host 127.0.0.1 --port 8000",
+    "build": "tsc --noEmit && vite build",
+    "lint": "tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.0"
+  }
+}
