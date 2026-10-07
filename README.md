@@ -6,6 +6,8 @@ plugins sit on top of a resilient EMR, are activated **reactively** (Drasi-style
 
 > Hackathon prototype. All patients, reports, protocols and trials are synthetic. Not for clinical use.
 
+**Live demo:** https://jochenvw.github.io/emr-extension/ (static build, scripted agents)
+
 ## Run
 
 ```powershell
@@ -78,6 +80,14 @@ src/pages/       Story, Architecture, Plugins, Deck
 backend/app/     FastAPI: config, genui (contract), tools (scoped), agents (Copilot SDK), main
 .verify/         Playwright walkthrough (MODE=scripted|live) and live SSE smoke test
 ```
+
+## Hosting
+
+- **GitHub Pages** (`.github/workflows/pages.yml`): every push to `main` builds with `VITE_STATIC=1` and deploys.
+  No runtime, so agents run in scripted mode with the same tools, block contract and trace.
+- **Live Copilot SDK agents** need the backend plus a Copilot identity, so they're not hosted publicly (a public
+  endpoint would spend the owner's Copilot quota). Run `npm run serve` locally, or deploy the FastAPI app as a
+  container (e.g. Azure Container Apps) with `COPILOT_GITHUB_TOKEN` as a secret behind authentication.
 
 ## Verify
 
